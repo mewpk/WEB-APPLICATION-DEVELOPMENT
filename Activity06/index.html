@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magazine Page</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 56px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #000000 0%, #333333 100%); /* Gradient background */
+        color: white; /* Set the text color to white */
+      }
+      .content-section {
+        padding: 40px 20px;
+        margin-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      h2 {
+        color: #007bff; 
+      }
+      p {
+        text-align: justify; 
+        line-height: 1.6; 
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .target-element::before {
+        content: "";
+        display: block;
+        height: 70px; 
+        margin-top: -70px; 
+        visibility: hidden;
+        pointer-events: none;
+      }
+    </style>
+   
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Magazine</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#article1">Article 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article2">Article 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article3">Article 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article4">Article 4</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article5">Article 5</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article6">Article 6</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#article7">Article 7</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="container">
+      <!-- Article 1: Python -->
+      <div class="row content-section vh-100" id="article1">
+        <div class="col-12 ">
+          <h2>Article 1: Python</h2>
+          <p>
+            Python
+            ได้รับความนิยมอย่างกว้างขวางในหมู่นักพัฒนาซอฟต์แวร์เนื่องจากความง่ายในการเรียนรู้และความหลากหลายของไลบรารี
+            มันเหมาะสำหรับการพัฒนาเว็บ การวิเคราะห์ข้อมูล
+            และการเรียนรู้ของเครื่อง.
+          </p>
+          <img   src="https://img5.pic.in.th/file/secure-sv1/python.png" alt="Python Programming Language" />
+        </div>
+      </div>
+
+      <!-- Article 2: JavaScript -->
+      <div class="row content-section vh-100" id="article2">
+        <div class="col-12 ">
+          <h2>Article 2: JavaScript</h2>
+          <p>
+            JavaScript
+            คือภาษาโปรแกรมมิ่งที่ขับเคลื่อนการพัฒนาเว็บและการสร้างแอปพลิเคชันที่โต้ตอบได้
+            มันใช้ในการพัฒนา front-end และ back-end ผ่าน Node.js.
+          </p>
+          <img  
+            src="https://img2.pic.in.th/pic/javascript.png"
+            alt="JavaScript Programming Language"
+          />
+        </div>
+      </div>
+
+      <!-- Article 3: Java -->
+      <div class="row content-section vh-100" id="article3">
+        <div class="col-12 ">
+          <h2>Article 3: Java</h2>
+          <p>
+            Java เป็นภาษาโปรแกรมมิ่งที่มีความปลอดภัยสูงและเป็นอิสระจากแพลตฟอร์ม
+            มันเป็นที่นิยมในการพัฒนาแอปพลิเคชันมือถือ Android
+            และแอปพลิเคชันองค์กรขนาดใหญ่.
+          </p>
+          <img   src="https://img2.pic.in.th/pic/java.png" alt="Java Programming Language" />
+        </div>
+      </div>
+
+      <!-- Article 4: C# -->
+      <div class="row content-section vh-100" id="article4">
+        <div class="col-12 ">
+          <h2>Article 4: C#</h2>
+          <p>
+            C# (C-Sharp) เป็นภาษาโปรแกรมมิ่งที่พัฒนาโดย Microsoft
+            ซึ่งใช้สำหรับการพัฒนาแอปพลิเคชัน Windows, เกมด้วย Unity,
+            และแอปพลิเคชันเว็บด้วย .NET.
+          </p>
+          <img   src="https://img5.pic.in.th/file/secure-sv1/cs.png" alt="C# Programming Language" />
+        </div>
+      </div>
+
+      <!-- Article 5: Ruby -->
+      <div class="row content-section vh-100" id="article5">
+        <div class="col-12 ">
+          <h2>Article 5: Ruby</h2>
+          <p>
+            Ruby
+            เป็นภาษาโปรแกรมมิ่งที่มีความยืดหยุ่นสูงและเหมาะสำหรับการพัฒนาเว็บ
+            ด้วย Ruby on Rails, การพัฒนาเว็บไซต์กลายเป็นง่ายดายและรวดเร็ว.
+          </p>
+          <img   src="https://img5.pic.in.th/file/secure-sv1/ruby.jpeg" alt="Ruby Programming Language" />
+        </div>
+      </div>
+
+      <!-- Article 6: Swift -->
+      <div class="row content-section vh-100" id="article6">
+        <div class="col-12 ">
+          <h2>Article 6: Swift</h2>
+          <p>
+            Swift เป็นภาษาโปรแกรมมิ่งที่พัฒนาโดย Apple สำหรับ iOS และ macOS
+            มันเน้นที่ความปลอดภัย, ความเร็ว, และความทันสมัย.
+          </p>
+          <img   src="https://img2.pic.in.th/pic/Swift.png" alt="Swift Programming Language" />
+        </div>
+      </div>
+
+      <!-- Article 7: Go -->
+      <div class="row content-section vh-100" id="article7">
+        <div class="col-12 ">
+          <h2>Article 7: Go</h2>
+          <p>
+            Go (หรือ Golang) เป็นภาษาโปรแกรมมิ่งที่พัฒนาโดย Google
+            มีความเร็วสูงในการคอมไพล์ และเหมาะสำหรับการพัฒนาเว็บ, ระบบคลาวด์,
+            และการประมวลผลขนาดใหญ่.
+          </p>
+          <img   src="https://img5.pic.in.th/file/secure-sv1/go.png" alt="Go Programming Language" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const offset = 30; 
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    let target = document.querySelector(this.getAttribute('href'));
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = targetPosition - offset;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                });
+            });
+        });
+        </script>
+  </body>
+</html>

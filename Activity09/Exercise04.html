@@ -6,7 +6,7 @@
     <script>
       const mainContainer = document.getElementById("maincontainer");
 
-      const header = document.createElement("h1");
+      const header = document.createElement("h2");
       header.textContent = "Exercise 04: JavaScript&DOM";
       mainContainer.appendChild(header);
 
@@ -16,7 +16,7 @@
       mainContainer.appendChild(button);
 
       const timeDisplay = document.createElement("div");
-      timeDisplay.style.position = "absolute";
+      timeDisplay.style.position = "fixed";
       timeDisplay.style.top = "0";
       timeDisplay.style.right = "0";
       timeDisplay.style.backgroundColor = "#fff";
@@ -106,7 +106,7 @@
       image.alt = "CE Logo";
       image.style.width = "50vw";
 
-      const snapshotsHeader = document.createElement("h2");
+      const snapshotsHeader = document.createElement("h1");
       snapshotsHeader.textContent = "Snapshots";
       mainContainer.appendChild(snapshotsHeader);
 

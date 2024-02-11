@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="maincontainer"></div>
+    <script>
+      const mainContainer = document.getElementById("maincontainer");
+
+      const header = document.createElement("h1");
+      header.textContent = "Exercise 04: JavaScript&DOM";
+      mainContainer.appendChild(header);
+
+      const button = document.createElement("button");
+      button.textContent = "Click me to display Date and Time";
+      button.style.cursor = "pointer";
+      mainContainer.appendChild(button);
+
+      const timeDisplay = document.createElement("div");
+      timeDisplay.style.position = "absolute";
+      timeDisplay.style.top = "0";
+      timeDisplay.style.right = "0";
+      timeDisplay.style.backgroundColor = "#fff";
+      timeDisplay.style.border = "1px solid #000";
+      timeDisplay.style.color = "white";
+      timeDisplay.style.cursor = "pointer";
+      document.body.appendChild(timeDisplay);
+
+      let myWorker;
+      if (window.Worker) {
+        myWorker = new Worker('webworker.js');
+
+        myWorker.onmessage = function(e) {
+          const { currentTime, color } = e.data;
+          timeDisplay.textContent = currentTime;
+          timeDisplay.style.backgroundColor = color;
+        };
+
+        button.addEventListener("click", function() {
+          myWorker.postMessage({ action: 'start' });
+          button.style.visibility = "hidden";
+        });
+
+        timeDisplay.addEventListener("click", function() {
+          myWorker.postMessage({ action: 'stop' });
+          button.style.visibility = "visible";
+          button.textContent = timeDisplay.textContent;
+          button.style.backgroundColor = timeDisplay.style.backgroundColor;
+          button.style.color = "white";
+          button.style.border = "1px solid #000";
+          timeDisplay.textContent = "";
+          timeDisplay.style.backgroundColor = "#fff";
+        });
+      } else {
+        console.log('Your browser doesn\'t support web workers.');
+      }
+
+      const personalInfoHeader = document.createElement("p");
+      personalInfoHeader.textContent = "Personal Info";
+      personalInfoHeader.style.color = "pink";
+      personalInfoHeader.style.textDecoration = "underline";
+      mainContainer.appendChild(personalInfoHeader);
+
+      personalInfoHeader.addEventListener("mouseenter", function () {
+        personalInfoHeader.style.color = "blue";
+        personalInfoHeader.style.cursor = "pointer";
+        personalInfoHeader.style.backgroundColor = "yellow";
+        personalInfoHeader.style.width = "fit-content";
+      });
+      personalInfoHeader.addEventListener("mouseleave", function () {
+        personalInfoHeader.style.color = "pink";
+        personalInfoHeader.style.backgroundColor = "white";
+      });
+
+      const infoList = document.createElement("ul");
+      const infoes = [
+        "Patsakorn&Thong-un of student, ID: 65010731",
+        "Subject:WEB APPLICATION DEVELOPMENT",
+        "Semester:2/2023",
+      ];
+      infoes.forEach(function (snapshot) {
+        const listItem = document.createElement("li");
+        listItem.textContent = snapshot;
+        infoList.appendChild(listItem);
+      });
+      infoList.style.display = "none";
+      mainContainer.appendChild(infoList);
+
+      personalInfoHeader.addEventListener("click", function () {
+        if (infoList.style.display === "none") {
+          infoList.style.display = "block";
+        } else {
+          infoList.style.display = "none";
+        }
+      });
+
+      const listImage = [
+        "https://images.prestigeonline.com/wp-content/uploads/sites/8/2023/12/27170414/Festive-Celebrations-at-The-Standard-Bangkok-Fireworks-1353x900.jpg",
+        "https://images.creativemarket.com/0.1.0/ps/4043641/580/387/m1/fpnw/wm0/cover2-.jpg?1519292856&s=f1d9462fbb3c306e523b4d97e8a026cc",
+        "https://www.digitaltrends.com/wp-content/uploads/2023/07/Emily-Blunt-and-Tom-Cruise-face-each-other-in-Edge-of-Tomorrow.jpg?fit=720%2C479&p=1",
+        "https://a-z-animals.com/media/2021/07/Heaviest-Animals_-Bovini.jpg",
+      ];
+
+      const image = document.createElement("img");
+      image.src =
+        "https://scontent.fbkk22-1.fna.fbcdn.net/v/t39.30808-6/297283850_5367962686597930_4237137743468903702_n.png?_nc_cat=100&ccb=1-7&_nc_sid=783fdb&_nc_eui2=AeH92uJZg1t7xfYs_Nuh2ZunTr2Cz0bn89ROvYLPRufz1ObpMh1h47VH2KQHH4jQ38FwyH7lgVBCau51wCIBvY5B&_nc_ohc=FF_uNx4L5nwAX8Dtti_&_nc_ht=scontent.fbkk22-1.fna&oh=00_AfARe-ww2RxkUPHK_WqEJ0HOEHZKRYeI0Luav9wIK8uo7w&oe=65CD201E";
+      image.alt = "CE Logo";
+      image.style.width = "50vw";
+
+      const snapshotsHeader = document.createElement("h2");
+      snapshotsHeader.textContent = "Snapshots";
+      mainContainer.appendChild(snapshotsHeader);
+
+      const snapshotsList = document.createElement("ul");
+      const snapshots = ["Fireworks", "Crest", "Action", "Buffalo"];
+      snapshots.forEach(function (snapshot) {
+        const listItem = document.createElement("li");
+        const text = document.createElement("a");
+        text.textContent = snapshot;
+        text.style.color = "blue";
+        text.style.textDecoration = "underline";
+        text.style.cursor = "pointer";
+        text.addEventListener("click", function () {
+          image.src = listImage[snapshots.indexOf(snapshot)];
+        });
+
+        listItem.appendChild(text);
+        snapshotsList.appendChild(listItem);
+      });
+      mainContainer.appendChild(snapshotsList);
+      mainContainer.appendChild(image);
+    </script>
+  </body>
+</html>

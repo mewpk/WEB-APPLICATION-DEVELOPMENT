@@ -27,31 +27,35 @@
 
       let myWorker;
       if (window.Worker) {
-        myWorker = new Worker('webworker.js');
+        try {
+          myWorker = new Worker("webworker.js");
 
-        myWorker.onmessage = function(e) {
-          const { currentTime, color } = e.data;
-          timeDisplay.textContent = currentTime;
-          timeDisplay.style.backgroundColor = color;
-        };
+          myWorker.onmessage = function (e) {
+            const { currentTime, color } = e.data;
+            timeDisplay.textContent = currentTime;
+            timeDisplay.style.backgroundColor = color;
+          };
 
-        button.addEventListener("click", function() {
-          myWorker.postMessage({ action: 'start' });
-          button.style.visibility = "hidden";
-        });
+          button.addEventListener("click", function () {
+            myWorker.postMessage({ action: "start" });
+            button.style.visibility = "hidden";
+          });
 
-        timeDisplay.addEventListener("click", function() {
-          myWorker.postMessage({ action: 'stop' });
-          button.style.visibility = "visible";
-          button.textContent = timeDisplay.textContent;
-          button.style.backgroundColor = timeDisplay.style.backgroundColor;
-          button.style.color = "white";
-          button.style.border = "1px solid #000";
-          timeDisplay.textContent = "";
-          timeDisplay.style.backgroundColor = "#fff";
-        });
+          timeDisplay.addEventListener("click", function () {
+            myWorker.postMessage({ action: "stop" });
+            button.style.visibility = "visible";
+            button.textContent = timeDisplay.textContent;
+            button.style.backgroundColor = timeDisplay.style.backgroundColor;
+            button.style.color = "white";
+            button.style.border = "1px solid #000";
+            timeDisplay.textContent = "";
+            timeDisplay.style.backgroundColor = "#fff";
+          });
+        } catch (error) {
+          console.log("Error: ", error.message);
+        }
       } else {
-        console.log('Your browser doesn\'t support web workers.');
+        console.log("Your browser doesn't support web workers.");
       }
 
       const personalInfoHeader = document.createElement("p");

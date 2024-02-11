@@ -99,7 +99,7 @@
 
       const listImage = [
         "https://images.prestigeonline.com/wp-content/uploads/sites/8/2023/12/27170414/Festive-Celebrations-at-The-Standard-Bangkok-Fireworks-1353x900.jpg",
-        "https://static.educalingo.com/img/mr/800/mora.jpg",
+        "https://1.bp.blogspot.com/-vrnNblPznFE/XgjD6QwrSeI/AAAAAAAAAP4/JWGTXNflAhkE35KcbngEUm2dzthQfP76ACLcBGAsYHQ/s640/peacock-1209474_640__1577632685_194.124.35.179.jpg",
         "https://www.digitaltrends.com/wp-content/uploads/2023/07/Emily-Blunt-and-Tom-Cruise-face-each-other-in-Edge-of-Tomorrow.jpg?fit=720%2C479&p=1",
         "https://a-z-animals.com/media/2021/07/Heaviest-Animals_-Bovini.jpg",
       ];
@@ -120,12 +120,15 @@
       snapshots.forEach(function (snapshot) {
         const listItem = document.createElement("li");
         const text = document.createElement("a");
+        text.href = listImage[snapshots.indexOf(snapshot)];
+
         text.textContent = snapshot;
         text.style.color = "blue";
         text.style.textDecoration = "underline";
         text.style.cursor = "pointer";
-        text.addEventListener("click", function () {
-          image.src = listImage[snapshots.indexOf(snapshot)];
+        text.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default action (navigation) of the anchor tag
+          image.src = listImage[snapshots.indexOf(snapshot)]; // Update the image src
         });
 
         listItem.appendChild(text);
